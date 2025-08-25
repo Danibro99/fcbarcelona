@@ -1,0 +1,521 @@
+:root {
+    --barca-blue: #004d98;
+    --barca-red: #dc143c;
+    --barca-gold: #ffb81c;
+    --dark-blue: #003366;
+    --light-gray: #f8f9fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Enable smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding-top: 76px; /* Height of navbar + some padding */
+}
+
+/* Custom Navbar */
+.navbar-custom {
+    background: linear-gradient(135deg, var(--barca-blue), var(--dark-blue));
+    padding: 1rem 0;
+    box-shadow: 0 2px 15px rgba(0,77,152,0.3);
+}
+
+.navbar-custom .navbar-brand {
+    color: white;
+    font-weight: 600;
+}
+
+.navbar-custom .nav-link {
+    color: rgba(255,255,255,0.9) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover {
+    color: var(--barca-gold) !important;
+}
+
+.navbar-collapse {
+    transition: height 0.3s ease;
+}
+
+.navbar-custom .navbar-toggler {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-custom .navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: var(--barca-gold);
+}
+
+.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Animation for navbar collapse */
+.navbar-collapse.collapsing {
+    -webkit-transition: height .35s ease;
+    transition: height .35s ease;
+}
+
+.navbar-collapse.show {
+    height: auto;
+}
+
+/* Mobile menu styles */
+@media (max-width: 991px) {
+    .navbar-custom {
+        padding: 0.5rem 0;
+    }
+
+    .navbar-custom .navbar-collapse {
+        background: var(--barca-blue);
+        padding: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    .navbar-custom .navbar-nav {
+        padding: 0.5rem 0;
+    }
+
+    .navbar-custom .nav-item {
+        padding: 0.25rem 0;
+    }
+
+    .navbar-custom .nav-link {
+        padding: 0.5rem 1rem !important;
+        border-radius: 4px;
+    }
+
+    .navbar-custom .nav-link:hover {
+        background: rgba(255,255,255,0.1);
+    }
+
+    .navbar-toggler {
+        border: 2px solid rgba(255,255,255,0.5);
+        background: transparent;
+        padding: 0.5rem;
+        margin-right: 0;
+    }
+
+    .navbar-toggler:hover {
+        border-color: var(--barca-gold);
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none;
+        outline: none;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .navbar-collapse {
+        background: linear-gradient(135deg, var(--barca-blue), var(--dark-blue));
+        padding: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    .nav-link {
+        padding: 0.75rem 1rem !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    .navbar-toggler-icon::before {
+        top: -8px;
+    }
+
+    .navbar-toggler-icon::after {
+        bottom: -8px;
+    }
+
+    .navbar-collapse {
+        position: fixed;
+        top: 76px;
+        left: -100%;
+        width: 100%;
+        height: auto;
+        background: var(--dark-blue);
+        padding: 1rem;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+    /* Show menu when checkbox is checked */
+    .nav-toggle:checked ~ .navbar-collapse {
+        left: 0;
+    }
+
+    /* Add overlay when menu is open */
+    .nav-toggle:checked ~ .navbar-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: white !important;
+        font-size: 1.1rem;
+    }
+
+    .nav-link:hover {
+        background: rgba(255,255,255,0.1);
+        color: var(--barca-gold) !important;
+    }
+
+    /* Overlay for menu background */
+    .navbar-overlay {
+        position: fixed;
+        top: 76px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+
+    /* Close menu when clicking overlay */
+    .nav-toggle:checked ~ .navbar-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white !important;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--barca-gold) !important;
+    transform: translateY(-2px);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--barca-gold);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--barca-blue), var(--barca-red));
+    color: white;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,184,28,0.1)" points="0,1000 1000,800 1000,1000"/></svg>');
+    background-size: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.btn-custom {
+    background: var(--barca-gold);
+    border: none;
+    color: var(--dark-blue);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-custom:hover {
+    background: #e6a617;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255,184,28,0.4);
+}
+
+/* Cards Section */
+.section-padding {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--dark-blue);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 60px;
+    height: 4px;
+    background: var(--barca-gold);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.custom-card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.custom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,77,152,0.2);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+/* Specific styling for news section cards */
+#news .card-img-top {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Specific styling for team section cards */
+#team .card-img-top {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+    aspect-ratio: 1/1;
+}
+
+.custom-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+}
+
+/* Stats Section */
+.stats-section {
+    background: linear-gradient(135deg, var(--light-gray), #e9ecef);
+}
+
+.stat-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 15px;
+    background: white;
+    margin: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,77,152,0.15);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--barca-blue);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Footer */
+.footer {
+    background: var(--dark-blue);
+    color: white;
+    padding: 3rem 0 1rem 0;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--barca-gold);
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--barca-gold);
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* CSS-only animations on scroll */
+.custom-card, .stat-card {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .custom-card, .stat-card {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .custom-card:nth-child(1) { animation-delay: 0.2s; }
+    .custom-card:nth-child(2) { animation-delay: 0.4s; }
+    .custom-card:nth-child(3) { animation-delay: 0.6s; }
+    
+    .stat-card:nth-child(1) { animation-delay: 0.1s; }
+    .stat-card:nth-child(2) { animation-delay: 0.3s; }
+    .stat-card:nth-child(3) { animation-delay: 0.5s; }
+    .stat-card:nth-child(4) { animation-delay: 0.7s; }
+}
+
+.hero-content {
+    animation: fadeInUp 1s ease-out;
+}
